@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt")
 
 const AuthenticateUser = async(request,response,next)=>{
     const authHeader = request.headers["authorization"] 
-     
+    
 
     if (authHeader === undefined){
         response.status(400).send("Bad Request")
