@@ -26,7 +26,7 @@ const createUser = async (request, response) => {
       role,
       phone,
     ]);
-    response.send("User created Successfully");
+    response.status(201).send("User created Successfully");
   } catch (err) {
     if (
       err.message ===
@@ -139,7 +139,7 @@ const updateUser = async (request, response) => {
       user_id,
     ]);
 
-    response.status(200).send(updatedArray);
+    response.status(201).send(updatedArray);
   } catch (err) {
       
       response.status(400).send({message : "failed to Update User" ,
@@ -185,7 +185,7 @@ const PatchUpdate = async (request, response) => {
       updatedArray = await db.run(updateQuery, [updateValue, userId]);
     }
 
-    response.status(200).send(updatedArray);
+    response.status(201).send(updatedArray);
   } catch (err) {
     response.status(400).send({
       message: "Failed to update user",
