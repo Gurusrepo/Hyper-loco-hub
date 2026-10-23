@@ -60,7 +60,7 @@ const loginUser = async (request, response) => {
       if (await bcrypt.compare(password, getUser.password)) {
         const jwtToken = jwt.sign(
           { user_id: getUser.user_id, role: getUser.role },
-          "Secret",
+          "Secret"
         );
         response.send(jwtToken);
       } else {

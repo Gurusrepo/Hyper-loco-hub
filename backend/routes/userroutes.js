@@ -6,9 +6,9 @@ const authorizeUser = require("../middleware/authorization")
 
 route.post("/register", createUser); 
 route.post("/login",loginUser)
-route.get("/", AuthenticateUser,authorizeUser("admin"),getUsers)
-route.get("/profile", AuthenticateUser,authorizeUser("admin"), getUser)
-route.put("/update/:userId",AuthenticateUser,authorizeUser("admin"),updateUser)
-route.patch("/update/:userId", AuthenticateUser, authorizeUser("admin"),PatchUpdate)
+route.get("/", AuthenticateUser,getUsers)
+route.get("/profile", AuthenticateUser, getUser)
+route.put("/update/:userId",AuthenticateUser,updateUser)
+route.patch("/update/:userId", AuthenticateUser,PatchUpdate)
 
 module.exports = route;
